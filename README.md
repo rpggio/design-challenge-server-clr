@@ -7,10 +7,11 @@ If the solution passes, the system will promote the user to the next stage, push
 This repository contains the back-end processors and services for running on a Windows server. A service bus is used internally to coordinate system operations.
 Requires Gitblit, RabbitMQ, MSBuild tools for building solutions, Ruby and Rake for running acceptance tests.
 Deployment and configuration tools are for Amazon EC2.
+Currently, the system only supports solutions in C#, but it is architected to support any language which can imlement a minimal HTTP service (so, any language, technically).
 
 ## GateScheduler Challenge
 
- GateScheduler is the first challenge designed for the system. The readme for the challenge describes how it works. Currently, the system only supports solutions in C#.
+ GateScheduler is the first challenge designed for the system. The readme for the challenge describes how it works:
 
 > For this challenge, you will be building an application to schedule gates at an airport. The application will receive information about the inbound and outbound flights at the airport. It will be responsible for scheduling the flights at available gates according to the constraints given. 
 
