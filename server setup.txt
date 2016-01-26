@@ -1,0 +1,92 @@
+
+-----------------------------------------------------------
+Server setup
+-----------------------------------------------------------
+
+Disable IE Enhanced Security in Server Manager - Security
+
+Install Windows Updates
+
+7zip
+
+Git
+   http://git-scm.com/download/win
+
+GitBlit
+  Java 7 Server JRE: http://www.oracle.com/technetwork/java/javase/downloads/server-jre7-downloads-1931105.html
+  "Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files"
+		http://www.oracle.com/technetwork/java/embedded/embedded-se/downloads/jce-7-download-432124.html
+		* copy into jre/lib/security
+  GitBlit: http://dl.bintray.com/gitblit/releases/gitblit-1.6.2.zip
+	- Set data path in authority.cmd, installService.cmd and gitblit.cmd
+	- Set keystore password in data\gitblit.properties:server.storePassword and in installService.cmd
+	- Run authority.cmd
+	- Try out setup by running gitblit.cmd
+	- Create dcs-system admin user
+
+MSBuild
+	4.5.1 targeting: http://www.microsoft.com/en-us/download/details.aspx?id=40779
+	MS Build Tools:	http://www.microsoft.com/en-us/download/details.aspx?id=40760
+	Add msbuild dir to PATH: C:\Windows\Microsoft.NET\Framework64\v4.0.30319
+
+Ruby
+	Ruby 1.9.3: http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p551.exe?direct
+	DevKit: https://github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe
+		1. Extract
+		2. ruby dk.rb init
+		3. ruby dk.rb install
+	Update RubyGems: 'gem update --system'
+	Bundler: 'gem install bundler'
+	Testing gems:
+		cd to GateScheduler challenge directory (contains 'features' dir)
+		'bundle install'
+	Ansicon:
+		http://adoxa.altervista.org/ansicon/
+		Extract to c:\tools\ansicon
+		Install: 'c:\tools\ansicon\x64\ansicon.exe -i'
+
+SMTP dev server: gem install MailCatcher
+
+Registry settings
+    scripts\disable-wer.reg
+    scripts\disable-user-uac-prompt.reg
+
+Port config
+	netsh advfirewall firewall add rule name="dcs.web" dir=in localport=80 protocol=TCP action=allow
+	netsh advfirewall firewall add rule name="dcs.gitblit" dir=in localport=8080 protocol=TCP action=allow
+	netsh advfirewall firewall add rule name="dcs.mailcatcher" dir=in localport=1080 protocol=TCP action=allow
+	netsh advfirewall firewall add rule name="dcs.services" dir=in localport=8280 protocol=TCP action=allow
+	netsh advfirewall firewall add rule name="dcs.https" dir=in localport=8443 protocol=TCP action=allow
+    
+    // may not be needed	
+	// netsh advfirewall firewall add rule name="dcs.40000.in" dir=in localport=40000 protocol=TCP action=allow
+	// netsh advfirewall firewall add rule name="dcs.40000.out" dir=out localport=40000 protocol=TCP action=allow
+
+Set up dcs working directory
+    mkdir d:\dcs
+    copy \tools into d:\dcs\tools
+
+Set up DCS solution user
+    net user DCSSolutionUser Shelby007 /ADD
+    WMIC USERACCOUNT WHERE "Name='DCSSolutionUser'" SET PasswordExpires=FALSE
+    icacls.exe d:\dcs /grant DCSSolutionUser:(OI)(CI)(IO)(M)
+    icacls.exe d:\dcs /grant DCSSolutionUser:(R)
+    d:\dcs\tools\ntrights +r SeServiceLogonRight -u DCSSolutionUser
+
+Register web hosting ports
+    netsh http add urlacl url=http://+:8280/ user=Everyone
+
+Register solution ports
+    (netsh http add urlacl url=http://+:PORT/ user=DcsSolutionUser)
+    
+    on server:
+       for /L %i in (40000,1,40099) do netsh http add urlacl url=http://+:%i/ user=DcsSolutionUser
+
+    on local:
+       for /L %i in (40000,1,40099) do netsh http add urlacl url=http://+:%i/ user=Everyone
+
+[Optional] Win SDK 8 debugging tools
+	http://www.microsoft.com/click/services/Redirect2.ashx?CR_EAC=300135395
+
+
+

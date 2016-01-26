@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+group :development do
+  gem 'guard'
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'rake'
+  gem 'json'
+  gem 'rb-notifu'
+  gem 'faraday'
+  gem 'faraday_middleware'
+end

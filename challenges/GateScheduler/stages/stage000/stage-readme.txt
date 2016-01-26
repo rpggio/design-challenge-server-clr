@@ -1,0 +1,1 @@
+This stage establishes the infrastructure for your solution. The Cucumber features can be executed by running 'bundle exec cucumber' from the base solution directory (the one containing the 'features' directory). One basic endpoint is required, 'gates', which will allow the adding/getting of gates in the system.

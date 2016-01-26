@@ -1,0 +1,5 @@
+For this challenge, you will be building an application to schedule gates at an airport. The application will receive information about the inbound and outbound flights at the airport. It will be responsible for scheduling the flights at available gates according to the constraints given. 
+
+The application will be implemented as a simple in-process HTTP server. All interaction with the application will be through the web API. The server will be minimally simple, providing only basic request/response behavior with one request at a time. For most languages, there are capable, lightweight in-process libraries available that will provide all the needed HTTP functionality.
+
+The requirements for the application will be provided in stages. After a stage is completed, satisfying the provided acceptance tests, the requirements for the next stage are provided. The requirements are provided as tests written using Cucumber, a library for Ruby that provides a language for writing feature descriptions that are executable.

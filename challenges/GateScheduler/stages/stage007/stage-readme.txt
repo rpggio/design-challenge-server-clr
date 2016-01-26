@@ -1,0 +1,1 @@
+This stage introduces constraints on the scheduling of flights at neighboring gates.

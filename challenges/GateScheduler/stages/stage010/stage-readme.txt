@@ -1,0 +1,1 @@
+When a gate is added, the system will attempt to schedule any unscheduled flights.

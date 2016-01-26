@@ -1,0 +1,54 @@
+
+-----------------------------------------------------------
+App server deploy
+-----------------------------------------------------------
+
+Stop services
+
+Copy dcs.services
+Copy env config
+
+Copy dcs.userServices
+Copy env config
+
+Copy dcs.console
+Copy env config
+
+Start services
+
+Copy dcs-push.groovy to {gitblitdata}/groovy/
+  - !!! modify path to console exe within deployed file dcs-push.groovy !!!
+
+-----------------------------------------------------------
+Web services deploy
+-----------------------------------------------------------
+
+Stop service
+
+Copy dcs.services
+Copy env config
+
+Start service
+
+-----------------------------------------------------------
+Server startup
+-----------------------------------------------------------
+
+Start Mailcatcher:
+	mailcatcher --http-ip 0.0.0.0
+
+Start GitBlit service
+	net start gitblit
+
+Start DCS servers
+    d:\dcs\bin\dcs.userServices\dcs.userServices.exe start
+    d:\dcs\bin\dcs.services\dcs.services.exe start
+
+-----------------------------------------------------------
+Server test
+-----------------------------------------------------------
+
+On local workstation:
+    cd C:\work\me\design-challenge-server\scripts
+    set dcs-env staging
+    dcsa.rb test-workflow

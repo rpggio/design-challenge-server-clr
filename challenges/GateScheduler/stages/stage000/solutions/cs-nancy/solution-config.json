@@ -1,0 +1,4 @@
+{
+   "msbuild": "source/GateScheduler/GateScheduler.csproj",
+   "run": "source/GateScheduler/bin/debug/GateScheduler.exe" 
+}

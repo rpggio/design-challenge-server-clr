@@ -1,0 +1,1 @@
+For this stage, you will be creating the flights endpoint for the client to add and retrieve flight listings. This will be similar to the gates endpoint, with the addition of a time-values attribute 'arrives'.

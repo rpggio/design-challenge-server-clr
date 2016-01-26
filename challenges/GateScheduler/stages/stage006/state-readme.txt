@@ -1,0 +1,1 @@
+This stage introduces a scheduling rule based on both arrival and departure time.

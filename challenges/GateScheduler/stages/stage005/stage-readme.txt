@@ -1,0 +1,1 @@
+This stage introduces departure times for flights and an accompanying 'departures' endpoint. Flights are considered to have exclusive access to their gate between arrival and departure time.

@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+group :development do
+    gem 'net-ping'
+    gem 'faraday'
+    gem 'faraday_middleware'
+    gem 'multi_json'
+    gem 'rspec'
+    gem 'cucumber'
+    gem 'win32/security'
+end

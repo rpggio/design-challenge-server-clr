@@ -1,0 +1,24 @@
+
+-----------------------------------------------------------
+Dev setup
+-----------------------------------------------------------
+
+SMTP dev server: smtp4dev
+
+REST test client: Chrome extension 'Advanced Rest Client'
+
+SQLITE tool:
+http://sqlcetoolbox.codeplex.com/downloads/get/657181
+
+
+-----------------------------------------------------------
+Dev tools
+-----------------------------------------------------------
+
+Gitblit management: localhost:8443
+
+
+
+Register web hosting ports
+    netsh http add urlacl url=http://+:8280/ user=Everyone
+    netsh http add urlacl url=http://+:8281/ user=Everyone

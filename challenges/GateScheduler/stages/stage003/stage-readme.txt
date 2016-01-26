@@ -1,0 +1,1 @@
+For this stage, your application is expected to sort the arrivals by arrival time.

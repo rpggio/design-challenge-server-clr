@@ -1,0 +1,1 @@
+This stage requires that the scheduler optimizes the scheduling of flights to fit within a limited number of gates.

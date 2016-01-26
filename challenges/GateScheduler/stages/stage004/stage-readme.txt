@@ -1,0 +1,1 @@
+In this stage, scheduling of arrivals is constrained to schedule flights as close to the hub as possible (without violating other rules). Additionally, flights scheduled at the same gate must have arrival times at least one hour apaprt.

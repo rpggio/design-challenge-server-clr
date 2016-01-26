@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+#
+
+echo "postcommitting ($#) - $* - $1 $2 $3" >> C:/work/me/CodeFlightDesign/GitHooksTest2_output/postcommits.txt
+pwd >> C:/work/me/CodeFlightDesign/GitHooksTest2_output/postcommits.txt
+
+
+# exit 1

@@ -1,0 +1,1 @@
+In this stage, you will create an 'arrivals' endpoint and implement logic to assign flights to gates.
